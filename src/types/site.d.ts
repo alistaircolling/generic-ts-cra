@@ -1,3 +1,6 @@
+
+export type DataResponse = Site | Page | Menu
+export type DataRequest = 'site' | 'page' | 'menu'
 export interface Site {
   title: string;
 }
@@ -46,3 +49,4 @@ type Theme = {
     large: number;
   };
 };
+
