@@ -1,25 +1,20 @@
 import axios from "axios";
 import { DataRequest, DataResponse } from "../types/site";
-
-
+import site from '../data/site.json'
+import menu from '../data/menu.json'
 
 
 const useGetData = async (dataRequest: DataRequest): Promise<DataResponse | undefined> => {
+  console.log('useGetData', dataRequest)
 
-  try {
-
-    //TODO add cms
-    const url: string = `../data/${dataRequest}.json`
-    const response = await axios.get(url)
-    console.log('response', response)
-    const data = JSON.parse(JSON.stringify(response.data))
-    console.log('data', data)
-    return data as DataResponse
-  } catch (error) {
-    console.log('unable to load data')
-
+  switch (dataRequest) {
+    case 'site':
+      return site
+    case 'menu':
+      return undefined
   }
-  return
 }
 
 export { useGetData }
+
+
