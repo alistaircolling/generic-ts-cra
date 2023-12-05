@@ -3,6 +3,7 @@ import logo from '../assets/logo.svg'
 import { useGetData } from '../hooks/useGetData'
 import theme from '../styles/theme'
 import { DataResponse, Site } from '../types/site'
+import Menu from './Menu'
 
 const App: React.FC = () => {
   console.log('app---------------')
@@ -15,6 +16,7 @@ const App: React.FC = () => {
   return (
     <div className='App'>
       <div style={{ height: '100vh', width: '100vw', backgroundColor: theme.colors.primary }}>
+        <Menu />
         {data ? (
           <header>
             <h1 style={{ margin: 0, color: 'greenyellow', textAlign: 'center' }}>{(data as Site)?.title}</h1>

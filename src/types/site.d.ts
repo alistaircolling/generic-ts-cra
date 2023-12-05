@@ -1,5 +1,5 @@
 
-export type DataResponse = Site | Page | Menu
+export type DataResponse = Site | Page | MenuData
 export type DataRequest = 'site' | 'page' | 'menu'
 export interface Site {
   title: string;
@@ -9,7 +9,7 @@ export interface MenuItem {
   path: string;
 }
 
-export interface Menu {
+export interface MenuData {
   items: MenuItem[];
 }
 
