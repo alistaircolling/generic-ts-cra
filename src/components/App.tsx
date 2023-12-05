@@ -10,6 +10,7 @@ const App: React.FC = () => {
   const { data, error, loading } = useGetData('site')
 
   if (error) return <div>Error</div>
+  console.log('data', data)
 
   return (
     <div className='App'>

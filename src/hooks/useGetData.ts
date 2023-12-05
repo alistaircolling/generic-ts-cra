@@ -11,13 +11,17 @@ const useGetData = (request: DataRequest) => {
   const [error, setError] = useState<Error | null>(null)
 
   useEffect(() => {
+    console.log('useeffect')
     const fetchData = async (request: any) => {
-
+      console.log('request:', request)
+      console.log('site', site)
       switch (request) {
         case 'site':
-          return site
+          setData(site)
+          return
         case 'menu':
-          return menu
+          setData(menu)
+          return
         default:
           return null
       }
