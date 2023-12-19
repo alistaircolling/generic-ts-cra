@@ -6,7 +6,16 @@ module.exports = function override(config) {
       from: 'src/data/**/*.json',
       to: 'dist',
     }],
-  }));
+
+    resolve: {
+      alias: {
+        '@mui/styled-engine': '@mui/styled-engine-sc'
+      },
+    }));
 
   return config;
+};
+
+module.exports = {
+  //...
 };

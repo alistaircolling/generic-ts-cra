@@ -3,7 +3,8 @@ import logo from '../assets/logo.svg'
 import { useGetData } from '../hooks/useGetData'
 import theme from '../styles/theme'
 import { DataResponse, Site } from '../types/site'
-import Menu from './Menu'
+import { Box, Container, Link, Typography } from '@mui/material'
+import Nav from './Nav'
 
 const App: React.FC = () => {
   console.log('app---------------')
@@ -14,26 +15,28 @@ const App: React.FC = () => {
   console.log('data', data)
 
   return (
-    <div className='App'>
-      <div style={{ height: '100vh', width: '100vw', backgroundColor: theme.colors.primary }}>
-        <Menu />
+    <Box className='App' style={{ display: 'flex', flexDirection: 'column', height: '100vh', width: '100vw' }}>
+      <Nav />
+      <Box style={{ flex: 1, backgroundColor: theme.colors.primary }}>
         {data ? (
           <header>
-            <h1 style={{ margin: 0, color: 'greenyellow', textAlign: 'center' }}>{(data as Site)?.title}</h1>
-            <div>
+            <Typography variant='h1' style={{ margin: 0, color: 'greenyellow', textAlign: 'center' }}>
+              {(data as Site)?.title}
+            </Typography>
+            <Container>
               <img src={logo} className='App-logo' alt='logo' />
-            </div>
+            </Container>
           </header>
         ) : (
-          <div>Loading....</div>
+          <Typography variant='h3'>Loading....</Typography>
         )}
-        <div style={{ backgroundColor: theme.colors.primary }}>
-          <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-            Hello
-          </a>
-        </div>
-      </div>
-    </div>
+      </Box>
+      <Container style={{ width: '100%', color: 'greenyellow', backgroundColor: theme.colors.primary }}>
+        <Link href='https://google.com' target='_blank' rel='noopener noreferrer'>
+          <Typography variant='h3'>Hello</Typography>
+        </Link>
+      </Container>
+    </Box>
   )
 }
 
